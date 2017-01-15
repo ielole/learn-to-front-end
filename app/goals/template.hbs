@@ -1,0 +1,9 @@
+<h2>Your Goals</h2>
+
+{{#each model as |goal|}}
+  <p>{{goal-list goal=goal}}</p>
+{{/each}}
+{{#link-to 'goals/new'}}
+<button class="btn btn-md btn-success">Create A Resolution</button>
+{{/link-to}}
+{{!-- <button class="btn btn-md btn-info">View Your Resolutions</button> --}}

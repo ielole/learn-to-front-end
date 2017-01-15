@@ -1,0 +1,12 @@
+<form {{ action 'save' on='submit' }}>
+  {{input placeholder='New Goal or Resolution'
+          value=goal.title}}
+  {{input type=date
+          placeholder="Start Date"
+          value=goal.startDate}}
+  {{input type=date
+          placeholder="End Date"
+          value=goal.endDate}}
+  <button class="btn btn-xs btn-success" type="submit">Save</button>
+  <button class="btn btn-xs btn-danger" {{ action 'cancel'}}>Cancel</button>
+</form>
