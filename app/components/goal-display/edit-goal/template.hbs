@@ -1,0 +1,12 @@
+<form {{ action 'save' on='submit'}}>
+  <label for="goal-name">Name of Goal</label>
+  {{input placeholder='Name of Goal'
+          value=goal.title}}
+  <label for="goal-start-date">Start Date</label>
+  {{input type='date'
+          value=goal.startDate}}
+  <label for="goal-end-date">End Date</label>
+  {{input type='date'
+          value=goal.endDate}}
+  <button class="btn btn-xs btn-success" type="submit">Save</button>
+</form>

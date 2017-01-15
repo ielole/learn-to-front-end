@@ -12,6 +12,7 @@ Router.map(function () {
   this.route('users');
   this.route('about');
   this.route('goals');
+  this.route('goals/new-goal');
   this.route('goal', { path: 'goals/:goal_id' });
 });
 
