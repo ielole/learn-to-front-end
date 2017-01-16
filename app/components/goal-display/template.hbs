@@ -1,3 +1,6 @@
 <h3>Goal: {{goal.title}}</h3>
 <p>Start Date: {{goal.startDate}}</p>
 <p>End Date: {{goal.endDate}}</p>
+{{#link-to 'goal/update-goal' goal}}
+  <button class="btn btn-xs btn-warning">Update Goal</button>
+{{/link-to}}

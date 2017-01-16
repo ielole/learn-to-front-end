@@ -14,6 +14,8 @@ Router.map(function () {
   this.route('goals');
   this.route('goals/new-goal');
   this.route('goal', { path: 'goals/:goal_id' });
+  this.route('goal/update-goal', {path: 'goals/:goal_id/update-goal'});
+
 });
 
 export default Router;
