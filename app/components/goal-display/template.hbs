@@ -1,6 +1,21 @@
 <h3>Goal: {{goal.title}}</h3>
 <p>Start Date: {{goal.startDate}}</p>
 <p>End Date: {{goal.endDate}}</p>
+{{!-- <p>goal.achievements: {{goal.achievements}}</p> --}}
+<ul>
+  {{#each goal.achievements as |achievement|}}
+      {{goal-display/achievement achievement=achievement}}
+  {{/each}}
+</ul>
+<form {{ action 'createAchievement' on='submit'}}>
+  <label for="log-text">Today's Progress</label>
+  {{input placeholder="Record today's achievement!"
+          value=newLog.log}}
+  <label for="log-image">Today's Picture</label>
+  {{input placeholder="Add a picture to represent today's achievement."
+          value=newLog.image}}
+<button type="submit" class="btn btn-xs btn-info">Add A Daily Achievement</button>
+</form>
 {{#link-to 'goal/update-goal' goal}}
   <button class="btn btn-xs btn-warning">Update Goal</button>
 {{/link-to}}

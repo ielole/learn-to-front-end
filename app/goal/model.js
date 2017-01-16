@@ -4,4 +4,5 @@ export default DS.Model.extend({
   title: DS.attr('string'),
   startDate: DS.attr('string'),
   endDate: DS.attr('string'),
+  achievements: DS.hasMany('achievement'),
 });
