@@ -1,0 +1,10 @@
+This is the goal you're working towards: <h2>{{goal.title}}</h2>
+<form {{ action 'createAchievement' on='submit'}}>
+  <label for="log-text">Today's Progress</label>
+  {{input placeholder="Record today's achievement!"
+          value=newLog.log}}
+  <label for="log-image">Today's Picture</label>
+  {{input placeholder="Add a picture to represent today's achievement."
+          value=newLog.image}}
+<button type="submit" class="btn btn-xs btn-info">Save</button>
+</form>
