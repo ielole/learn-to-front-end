@@ -1,4 +1,4 @@
-import ENV from 'learn-to-app/config/environment';
+import ENV from 'https://warm-refuge-42424.herokuapp.com/config/environment';
 import ActiveModelAdapter from 'active-model-adapter';
 
 import Ember from 'ember';

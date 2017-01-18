@@ -1,4 +1,4 @@
-import ApplicationAdapter from 'learn-to-app/application/adapter';
+import ApplicationAdapter from 'three-sixty-five/application/adapter';
 
 export default ApplicationAdapter.extend({
   createRecord (store, type, record) {
