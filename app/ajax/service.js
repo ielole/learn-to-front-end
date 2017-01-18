@@ -1,7 +1,7 @@
 import Ember from 'ember';
 import AjaxService from 'ember-ajax/services/ajax';
 
-import ENV from 'https://warm-refuge-42424.herokuapp.com/config/environment';
+import ENV from 'learn-to-app/config/environment';
 
 export default AjaxService.extend({
   host: ENV.apiHost,
