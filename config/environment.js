@@ -1,7 +1,8 @@
 /* jshint node: true */
 
 module.exports = function (environment) {
-  var ENV = {
+  'use strict';
+  const ENV = {
     modulePrefix: 'three-sixty-five',
     environment: environment,
     rootURL: '/',
@@ -50,7 +51,7 @@ module.exports = function (environment) {
   if (environment === 'production') {
     ENV.rootURL = '/learn-to-front-end';
     ENV.locationType = 'hash';
-    ENV.apiHost = 'https://warm-refuge-42424.herokuapp.com/';
+    ENV.apiHost = 'https://warm-refuge-42424.herokuapp.com';
   }
 
   return ENV;
