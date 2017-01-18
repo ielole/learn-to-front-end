@@ -1,15 +1,19 @@
-<h3>Goal: {{goal.title}}</h3>
-{{#link-to 'goal/update-goal' goal}}
-  <button class="btn btn-xs btn-warning">Update Goal</button>
-{{/link-to}}
-<p>Start Date: {{goal.startDate}}</p>
-<p>End Date: {{goal.endDate}}</p>
+<h3>
+  Goal: {{goal.title}}
+  {{#link-to 'goal/update-goal' goal}}
+    <button class="btn btn-xs btn-warning">Update Goal</button>
+  {{/link-to}}
+</h3>
+<h5>
+  <span class="dates">Start Date: {{goal.startDate}}</span>
+  <span class="dates">End Date: {{goal.endDate}}</span>
+</h5>
 
 <ul>
-  {{#each goal.achievements as |achievement|}}
+  <li class="achievements">{{#each goal.achievements as |achievement|}}
       {{goal-display/achievements-main  achievement=achievement
                                         delete='deleteAchievement'}}
-  {{/each}}
+  {{/each}}</li>
 </ul>
 
 {{#link-to 'goal/new-achievement' goal}}
