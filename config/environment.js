@@ -3,7 +3,7 @@
 module.exports = function (environment) {
   'use strict';
   const ENV = {
-    modulePrefix: 'three-sixty-five',
+    modulePrefix: 'learn-to-app',
     environment: environment,
     rootURL: '/',
     locationType: 'auto',
