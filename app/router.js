@@ -14,8 +14,12 @@ Router.map(function () {
   this.route('goals');
   this.route('goals/new-goal');
   this.route('goal', { path: 'goals/:goal_id' });
+  this.route('goal/new-achievement', {path: 'goal/new-achievement'});
   this.route('goal/update-goal', {path: 'goals/:goal_id/update-goal'});
-  this.route('achievement', { path: 'goals/:goal_id/achievement'});
+  this.route('achievement', { path: 'goals/:goal_id/achievements/:achievement_id'});
+  this.route('achievement/update-achievement', { path: 'achievements/:achievement_id'});
+  this.route('achievements', {path: 'goals/:goal_id/achievements'});
+  this.route('achievements.new-achievement', {path: 'achievements/new-achievement'});
 });
 
 export default Router;

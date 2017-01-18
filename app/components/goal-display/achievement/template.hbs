@@ -1,8 +1,9 @@
 <h3>DAY:</h3>
+<h4>{{goal}}</h4>
 This is my log: {{achievement.log}} <br>
 This is an image url: {{achievement.image}}
 <br>
-{{#link-to goal-display/achievement/edit goal=goal}}
+{{#link-to 'achievement/update-achievement' achievement}}
 <button class="btn btn-xs btn-secondary">Update Daily Achievement</button>
 {{/link-to}}
 <button {{ action 'delete'}} class="btn btn-xs btn-danger">Delete Daily Achievement</button>
