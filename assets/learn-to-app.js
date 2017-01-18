@@ -87,7 +87,7 @@ define("learn-to-app/achievement/template", ["exports"], function (exports) {
 define('learn-to-app/achievement/update-achievement/route', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
     model: function model(params) {
-      return this.get('store').findRecord('achievement', params.achievement_id);
+      return this.get('store').findRecord('goal', params.goal_id);
     },
     actions: {
       updateAchievement: function updateAchievement(achievement) {
@@ -120,9 +120,9 @@ define('learn-to-app/achievements/route', ['exports', 'ember'], function (export
 define("learn-to-app/achievements/template", ["exports"], function (exports) {
   exports["default"] = Ember.HTMLBars.template({ "id": "cMbm7ghF", "block": "{\"statements\":[],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[],\"hasPartials\":false}", "meta": { "moduleName": "learn-to-app/achievements/template.hbs" } });
 });
-define('learn-to-app/ajax/service', ['exports', 'ember', 'ember-ajax/services/ajax', 'https://warm-refuge-42424.herokuapp.com/config/environment'], function (exports, _ember, _emberAjaxServicesAjax, _httpsWarmRefuge42424HerokuappComConfigEnvironment) {
+define('learn-to-app/ajax/service', ['exports', 'ember', 'ember-ajax/services/ajax', 'learn-to-app/config/environment'], function (exports, _ember, _emberAjaxServicesAjax, _learnToAppConfigEnvironment) {
   exports['default'] = _emberAjaxServicesAjax['default'].extend({
-    host: _httpsWarmRefuge42424HerokuappComConfigEnvironment['default'].apiHost,
+    host: _learnToAppConfigEnvironment['default'].apiHost,
 
     auth: _ember['default'].inject.service(),
     headers: _ember['default'].computed('auth.credentials.token', {
@@ -154,9 +154,9 @@ define('learn-to-app/app', ['exports', 'ember', 'learn-to-app/resolver', 'ember-
 
   exports['default'] = App;
 });
-define('learn-to-app/application/adapter', ['exports', 'https://warm-refuge-42424.herokuapp.com/config/environment', 'active-model-adapter', 'ember'], function (exports, _httpsWarmRefuge42424HerokuappComConfigEnvironment, _activeModelAdapter, _ember) {
+define('learn-to-app/application/adapter', ['exports', 'learn-to-app/config/environment', 'active-model-adapter', 'ember'], function (exports, _learnToAppConfigEnvironment, _activeModelAdapter, _ember) {
   exports['default'] = _activeModelAdapter['default'].extend({
-    host: _httpsWarmRefuge42424HerokuappComConfigEnvironment['default'].apiHost,
+    host: _learnToAppConfigEnvironment['default'].apiHost,
 
     auth: _ember['default'].inject.service(),
 
@@ -441,7 +441,7 @@ define("learn-to-app/components/goal-display/new-goal/template", ["exports"], fu
   exports["default"] = Ember.HTMLBars.template({ "id": "Hr9kQo/c", "block": "{\"statements\":[[\"open-element\",\"form\",[]],[\"modifier\",[\"action\"],[[\"get\",[null]],\"save\"],[[\"on\"],[\"submit\"]]],[\"flush-element\"],[\"text\",\"\\n  \"],[\"open-element\",\"label\",[]],[\"static-attr\",\"for\",\"goal-name\"],[\"flush-element\"],[\"text\",\"Name of Goal\"],[\"close-element\"],[\"text\",\"\\n  \"],[\"append\",[\"helper\",[\"input\"],null,[[\"placeholder\",\"value\"],[\"Name of Goal\",[\"get\",[\"newGoal\",\"title\"]]]]],false],[\"text\",\"\\n  \"],[\"open-element\",\"label\",[]],[\"static-attr\",\"for\",\"goal-start-date\"],[\"flush-element\"],[\"text\",\"Start Date\"],[\"close-element\"],[\"text\",\"\\n  \"],[\"append\",[\"helper\",[\"input\"],null,[[\"placeholder\",\"value\"],[\"YYYY-MM-DD HH:MM:SS\",[\"get\",[\"newGoal\",\"startDate\"]]]]],false],[\"text\",\"\\n  \"],[\"open-element\",\"label\",[]],[\"static-attr\",\"for\",\"goal-end-date\"],[\"flush-element\"],[\"text\",\"End Date\"],[\"close-element\"],[\"text\",\"\\n  \"],[\"append\",[\"helper\",[\"input\"],null,[[\"placeholder\",\"value\"],[\"YYYY-MM-DD HH:MM:SS\",[\"get\",[\"newGoal\",\"endDate\"]]]]],false],[\"text\",\"\\n  \"],[\"open-element\",\"button\",[]],[\"static-attr\",\"class\",\"btn btn-xs btn-success\"],[\"static-attr\",\"type\",\"submit\"],[\"flush-element\"],[\"text\",\"Save\"],[\"close-element\"],[\"text\",\"\\n\"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[],\"hasPartials\":false}", "meta": { "moduleName": "learn-to-app/components/goal-display/new-goal/template.hbs" } });
 });
 define("learn-to-app/components/goal-display/template", ["exports"], function (exports) {
-  exports["default"] = Ember.HTMLBars.template({ "id": "YKLpJ3jF", "block": "{\"statements\":[[\"open-element\",\"h3\",[]],[\"flush-element\"],[\"text\",\"Goal: \"],[\"append\",[\"unknown\",[\"goal\",\"title\"]],false],[\"close-element\"],[\"text\",\"\\n\"],[\"block\",[\"link-to\"],[\"goal/update-goal\",[\"get\",[\"goal\"]]],null,2],[\"open-element\",\"p\",[]],[\"flush-element\"],[\"text\",\"Start Date: \"],[\"append\",[\"unknown\",[\"goal\",\"startDate\"]],false],[\"close-element\"],[\"text\",\"\\n\"],[\"open-element\",\"p\",[]],[\"flush-element\"],[\"text\",\"End Date: \"],[\"append\",[\"unknown\",[\"goal\",\"endDate\"]],false],[\"close-element\"],[\"text\",\"\\n\\n\"],[\"open-element\",\"ul\",[]],[\"flush-element\"],[\"text\",\"\\n\"],[\"block\",[\"each\"],[[\"get\",[\"goal\",\"achievements\"]]],null,1],[\"close-element\"],[\"text\",\"\\n\\n\"],[\"block\",[\"link-to\"],[\"goal/new-achievement\"],null,0],[\"text\",\"\\n\"]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[{\"statements\":[[\"text\",\"  \"],[\"open-element\",\"button\",[]],[\"static-attr\",\"class\",\"btn btn-xs btn-primary\"],[\"flush-element\"],[\"text\",\"Add A Daily Achievement\"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[]},{\"statements\":[[\"text\",\"      \"],[\"append\",[\"helper\",[\"goal-display/achievements-main\"],null,[[\"achievement\",\"delete\"],[[\"get\",[\"achievement\"]],\"deleteAchievement\"]]],false],[\"text\",\"\\n\"]],\"locals\":[\"achievement\"]},{\"statements\":[[\"text\",\"  \"],[\"open-element\",\"button\",[]],[\"static-attr\",\"class\",\"btn btn-xs btn-warning\"],[\"flush-element\"],[\"text\",\"Update Goal\"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[]}],\"hasPartials\":false}", "meta": { "moduleName": "learn-to-app/components/goal-display/template.hbs" } });
+  exports["default"] = Ember.HTMLBars.template({ "id": "d9sRj2cV", "block": "{\"statements\":[[\"open-element\",\"h3\",[]],[\"flush-element\"],[\"text\",\"Goal: \"],[\"append\",[\"unknown\",[\"goal\",\"title\"]],false],[\"close-element\"],[\"text\",\"\\n\"],[\"block\",[\"link-to\"],[\"goal/update-goal\",[\"get\",[\"goal\"]]],null,2],[\"open-element\",\"p\",[]],[\"flush-element\"],[\"text\",\"Start Date: \"],[\"append\",[\"unknown\",[\"goal\",\"startDate\"]],false],[\"close-element\"],[\"text\",\"\\n\"],[\"open-element\",\"p\",[]],[\"flush-element\"],[\"text\",\"End Date: \"],[\"append\",[\"unknown\",[\"goal\",\"endDate\"]],false],[\"close-element\"],[\"text\",\"\\n\\n\"],[\"open-element\",\"ul\",[]],[\"flush-element\"],[\"text\",\"\\n\"],[\"block\",[\"each\"],[[\"get\",[\"goal\",\"achievements\"]]],null,1],[\"close-element\"],[\"text\",\"\\n\\n\"],[\"block\",[\"link-to\"],[\"goal/new-achievement\",[\"get\",[\"goal\"]]],null,0]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[{\"statements\":[[\"text\",\"  \"],[\"open-element\",\"button\",[]],[\"static-attr\",\"class\",\"btn btn-xs btn-primary\"],[\"flush-element\"],[\"text\",\"Add A Daily Achievement\"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[]},{\"statements\":[[\"text\",\"      \"],[\"append\",[\"helper\",[\"goal-display/achievements-main\"],null,[[\"achievement\",\"delete\"],[[\"get\",[\"achievement\"]],\"deleteAchievement\"]]],false],[\"text\",\"\\n\"]],\"locals\":[\"achievement\"]},{\"statements\":[[\"text\",\"  \"],[\"open-element\",\"button\",[]],[\"static-attr\",\"class\",\"btn btn-xs btn-warning\"],[\"flush-element\"],[\"text\",\"Update Goal\"],[\"close-element\"],[\"text\",\"\\n\"]],\"locals\":[]}],\"hasPartials\":false}", "meta": { "moduleName": "learn-to-app/components/goal-display/template.hbs" } });
 });
 define('learn-to-app/components/goals-main/component', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Component.extend({
@@ -577,13 +577,13 @@ define('learn-to-app/goal/model', ['exports', 'ember-data'], function (exports, 
 });
 define('learn-to-app/goal/new-achievement/route', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
-    model: function model() {
-      var goal = this.modelFor('goal.new-achievement');
+    model: function model(params) {
+      return this.get('store').findRecord('goal', params.goal_id);
     },
     actions: {
       createAchievement: function createAchievement(data) {
         console.log("This is inside goal route.js, newLog is: ", data);
-        data.goal = this.get('goal');
+        // data.goal = this.get('goal');
         var achievement = this.get('store').createRecord('achievement', data);
         console.log("Inside 'goal route' route.js 'createAchievement' and this is achievement: ", achievement);
         achievement.save();
@@ -592,7 +592,7 @@ define('learn-to-app/goal/new-achievement/route', ['exports', 'ember'], function
   });
 });
 define("learn-to-app/goal/new-achievement/template", ["exports"], function (exports) {
-  exports["default"] = Ember.HTMLBars.template({ "id": "tJcNSyag", "block": "{\"statements\":[[\"append\",[\"helper\",[\"goal-display/achievement/edit\"],null,[[\"goal\",\"createAchievement\"],[[\"get\",[\"goal\"]],\"createAchievement\"]]],false],[\"text\",\"\\n\"]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[],\"hasPartials\":false}", "meta": { "moduleName": "learn-to-app/goal/new-achievement/template.hbs" } });
+  exports["default"] = Ember.HTMLBars.template({ "id": "454NCvYg", "block": "{\"statements\":[[\"append\",[\"helper\",[\"goal-display/achievement/edit\"],null,[[\"goal\",\"createAchievement\"],[[\"get\",[\"model\"]],\"createAchievement\"]]],false],[\"text\",\"\\n\"]],\"locals\":[],\"named\":[],\"yields\":[],\"blocks\":[],\"hasPartials\":false}", "meta": { "moduleName": "learn-to-app/goal/new-achievement/template.hbs" } });
 });
 define('learn-to-app/goal/route', ['exports', 'ember'], function (exports, _ember) {
   exports['default'] = _ember['default'].Route.extend({
@@ -955,7 +955,7 @@ define('learn-to-app/router', ['exports', 'ember', 'learn-to-app/config/environm
     this.route('goals');
     this.route('goals/new-goal');
     this.route('goal', { path: 'goals/:goal_id' });
-    this.route('goal/new-achievement', { path: 'goal/new-achievement' });
+    this.route('goal/new-achievement', { path: 'goal/:goal_id/new-achievement' });
     this.route('goal/update-goal', { path: 'goals/:goal_id/update-goal' });
     this.route('achievement', { path: 'goals/:goal_id/achievements/:achievement_id' });
     this.route('achievement/update-achievement', { path: 'achievements/:achievement_id' });
@@ -1084,7 +1084,7 @@ catch(err) {
 /* jshint ignore:start */
 
 if (!runningTests) {
-  require("learn-to-app/app")["default"].create({"name":"learn-to-app","version":"0.0.0+0d3c0402"});
+  require("learn-to-app/app")["default"].create({"name":"learn-to-app","version":"0.0.0+c25045fa"});
 }
 
 /* jshint ignore:end */

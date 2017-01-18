@@ -294,7 +294,7 @@ define('learn-to-app/tests/goal/new-achievement/route.jshint.lint-test', ['expor
   QUnit.module('JSHint | goal/new-achievement/route.js');
   QUnit.test('should pass jshint', function (assert) {
     assert.expect(1);
-    assert.ok(false, 'goal/new-achievement/route.js should pass jshint.\ngoal/new-achievement/route.js: line 5, col 9, \'goal\' is defined but never used.\n\n1 error');
+    assert.ok(true, 'goal/new-achievement/route.js should pass jshint.');
   });
 });
 define('learn-to-app/tests/goal/route.jshint.lint-test', ['exports'], function (exports) {
