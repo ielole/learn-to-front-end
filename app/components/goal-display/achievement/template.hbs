@@ -1,9 +1,16 @@
-<h3>DAY:</h3>
-<h4>{{goal}}</h4>
-This is my log: {{achievement.log}} <br>
-This is an image url: {{achievement.image}}
-<br>
-{{#link-to 'achievement/update-achievement' achievement}}
-<button class="btn btn-xs btn-secondary">Update Daily Achievement</button>
-{{/link-to}}
-<button {{ action 'delete'}} class="btn btn-xs btn-danger">Delete Daily Achievement</button>
+{{!-- <h4>{{goal.title}}</h4> --}}
+<div class="center uno">
+  Daily Achievement:
+  <h4>{{achievement.log}} </h4><br>
+  Image url:
+  <h5>{{achievement.image}}</h5>
+  <br>
+  <div class="achievement-pic-frame">
+    <img class="achievement-pic" src="{{achievement.image}}" width="300px" height="300px">
+  </div>
+  <br>
+  {{#link-to 'achievement/update-achievement' achievement}}
+  <button class="btn btn-xs btn-secondary">Update Daily Achievement</button>
+  {{/link-to}}
+  <button {{ action 'delete'}} class="btn btn-xs btn-danger">Delete Daily Achievement</button>
+</div>

@@ -12,8 +12,10 @@ Router.map(function () {
   this.route('users');
   this.route('about');
   this.route('goals');
+  // this.route('goals.achievement', { path: 'goals/:goal_id/achievements/:achievement_id'});
   this.route('goals/new-goal');
   this.route('goal', { path: 'goals/:goal_id' });
+  // this.route('goal/achievement', { path: 'goals/:goal_id/achievements' });
   this.route('goal/new-achievement', {path: 'goal/:goal_id/new-achievement'});
   this.route('goal/update-goal', {path: 'goals/:goal_id/update-goal'});
   this.route('achievement', { path: 'goals/:goal_id/achievements/:achievement_id'});

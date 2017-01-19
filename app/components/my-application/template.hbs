@@ -3,14 +3,15 @@
     {{navbar-header}}
 
     <div class="collapse navbar-collapse" id="navigation">
-      <ul class="nav navbar-nav">
+      <ul class="nav navbar-nav standout">
         {{#if isAuthenticated}}
-        <li>{{#link-to "users"}}Users{{/link-to}}</li>
+        <li>{{#link-to "goals"}}My Goals{{/link-to}}</li>
+        {{!-- <li>{{#link-to "users"}}Users{{/link-to}}</li> --}}
         {{/if}}
       </ul>
       <ul class="nav navbar-nav navbar-right">
         {{#if isAuthenticated}}
-        <li>{{#link-to "goals"}}Your Goals{{/link-to}}</li>
+
         <li>{{#link-to "change-password"}}Change Password{{/link-to}}</li>
         <li><a href="#" {{action "signOut"}}>Sign Out</a></li>
         {{else}}

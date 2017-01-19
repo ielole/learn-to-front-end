@@ -1,4 +1,7 @@
-{{#link-to 'goal' goal}}
-  <button class="btn btn-small btn-secondary">Goal: {{goal.title}}</button>
-{{/link-to}}
-<button {{ action 'delete'}} class="btn btn-small btn-danger">Delete Goal</button>
+<div class="all-goals">
+  {{#link-to 'goal' goal}}
+    <div class="goal-in-list">{{goal.title}}</div>
+  {{/link-to}}
+  <br>
+  <h6 {{ action 'delete'}} class="delete-goal-button">Delete Goal</h6>
+</div>

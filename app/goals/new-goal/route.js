@@ -10,6 +10,7 @@ export default Ember.Route.extend({
       let goal = this.get('store').createRecord('goal', data);
       console.log("Inside 'goal route' route.js 'createAchievement' and this is achievement: ", goal);
     goal.save();
+    this.transitionTo('goals');
     },
   },
 });
