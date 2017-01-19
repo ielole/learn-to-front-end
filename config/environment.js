@@ -1,7 +1,8 @@
 /* jshint node: true */
 
 module.exports = function (environment) {
-  var ENV = {
+  'use strict';
+  const ENV = {
     modulePrefix: 'learn-to-app',
     environment: environment,
     rootURL: '/',
