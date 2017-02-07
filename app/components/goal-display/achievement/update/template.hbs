@@ -2,6 +2,7 @@ This is the goal you're working towards: <h2>{{goal.title}}</h2>
 <form {{ action 'save' on='submit'}}>
   <label for="log-text">Today's Progress</label>
   {{input placeholder="Record today's achievement!"
+          required=true
           value=achievement.log}}
   <label for="log-image">Today's Picture</label>
   {{input placeholder="Add a picture to represent today's achievement."
